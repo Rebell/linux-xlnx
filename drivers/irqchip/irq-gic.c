@@ -286,7 +286,7 @@ void handle_IPI(int ipinr, struct pt_regs *regs)
 		(*ipi_types[ipinr].handler)();
 		irq_exit();
 	} else
-		pr_debug("CPU%u: Unknown IPI message %x\n", (unsigned)ipinr);
+		pr_debug("Unknown IPI message %x\n", (unsigned int)ipinr);
 
 	set_irq_regs(old_regs);
 }
