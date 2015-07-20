@@ -8,16 +8,26 @@ config RPMSG
 
 config RPMSG_SERVER_SAMPLE
 	tristate "An rpmsg server sample"
-	depends on RPMSG
+	select RPMSG
 	---help---
 	  This is just a sample server driver for the rpmsg bus.
 	  Say either Y or M. You know you want to.
 
 config RPMSG_FREERTOS_STAT
 	tristate "An FreeRTOS statistic"
-	depends on RPMSG
+	select RPMSG
 	---help---
 	  This is just a sample to get statistic from FreeRTOS.
 	  Say either Y or M. You know you want to.
+
+config RPMSG_ZYNQ
+	tristate "Zynq rpmsg"
+	select RPMSG
+
+config RPMSG_USER_DEV
+	tristate "Rpmsg userspace device"
+	select RPMSG
+	---help---
+	  Driver exposing RPMSG functions to userspace as a char device.
 
 endmenu
